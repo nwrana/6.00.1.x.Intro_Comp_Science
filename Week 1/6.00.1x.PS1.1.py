@@ -20,7 +20,7 @@ for letters in user_input:
     for vowel in vowels:
         if vowel == letters:
             count += 1
-print('Number of vowels: ' + count)
+print('Number of vowels: ' + str(count))
 
 
 
