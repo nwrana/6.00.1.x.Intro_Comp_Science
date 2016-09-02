@@ -19,17 +19,6 @@
 # 
 #==============================================================================
 
-#Way fo thinking:
-#cycle through every letter in the string
-#take the current letter and compare it against the previous letter:
-#if previous number does not exist, create new list
-#if previous number exists and current letter is in alphabetical order, add current letter to active list
-#if the condition is False (current letter is not in alphabetical order)
-    #add current list to master_list
-    #increment index by one -> this will keep track of how many lists of alphabetical lists we have created
-    #modify string by removing string of letters stored in active list from string   
-    # as long as len(string) > 0, start while loop again 
-
 s = 'abcdadebcdef'
 start = 0
 index = 0
