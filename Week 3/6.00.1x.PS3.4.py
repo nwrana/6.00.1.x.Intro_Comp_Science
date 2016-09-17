@@ -128,21 +128,15 @@ def getAvailableLetters(lettersGuessed):
 def hangman(secretWord):
     '''
     secretWord: string, the secret word to guess.
-
     Starts up an interactive game of Hangman.
-
     * At the start of the game, let the user know how many 
       letters the secretWord contains.
-
     * Ask the user to supply one guess (i.e. letter) per round.
-
     * The user should receive feedback immediately after each guess 
       about whether their guess appears in the computers word.
-
     * After each round, you should also display to the user the 
       partially guessed word so far, as well as letters that the 
       user has not yet guessed.
-
     Follows the other limitations detailed in the problem write-up.
     '''
     print('Welcome to the game Hangman!')
@@ -158,27 +152,26 @@ def hangman(secretWord):
         while status:  
             print('You have ' + str(guess_remaining) + ' guesses left')
             print('Available Letters: ' + getAvailableLetters(lettersGuessed)),
-            selection = lower(input('Please guess a letter: '))
+            selection = input('Please guess a letter: ')
+            selection.lower()
             if selection in getAvailableLetters(lettersGuessed):
                 lettersGuessed.append(selection)
                 status = False
             else:
-                print('You have already selected that letter')
+                print("Oops! You've already guessed that letter: " + getGuessedWord(secretWord, lettersGuessed))
                 print('-----------')
         
         if selection in secretWord:
             print('Good guess: ' + getGuessedWord(secretWord, lettersGuessed))
         else:
             print('Oops! That letter is not in my word: ' + getGuessedWord(secretWord, lettersGuessed))
-        
+            guess_remaining -= 1
         print('-----------')
         
         if isWordGuessed(secretWord, lettersGuessed) == True:
             print('Congratulations, you won!')
             return
-        
-        guess_remaining -= 1
-        
+         
     print('Sorry, you ran out of guesses. The word was ' + str(secretWord))
     
     
