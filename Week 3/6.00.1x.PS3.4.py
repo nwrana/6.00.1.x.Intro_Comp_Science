@@ -158,7 +158,7 @@ def hangman(secretWord):
         while status:  
             print('You have ' + str(guess_remaining) + ' guesses left')
             print('Available Letters: ' + getAvailableLetters(lettersGuessed)),
-            selection = raw_input('Please guess a letter: ') ####use input python 3.x
+            selection = lower(input('Please guess a letter: '))
             if selection in getAvailableLetters(lettersGuessed):
                 lettersGuessed.append(selection)
                 status = False
